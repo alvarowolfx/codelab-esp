@@ -1,7 +1,15 @@
 # Codelab ESP8266
 
-* MQTT
-* Firebase
+* Exemplo MQTT
+* Exemplo Firebase
+
+### Codelabs Originais
+
+O conteúdo original foi montado pelo Grupo de estudo de IoT pelo GDG Cuiabá.
+
+* https://github.com/JvDantas/WorkshopESP8266
+* https://codelabs.developers.google.com/codelabs/iot-data-pipeline/index.html
+* https://codelabs.developers.google.com/codelabs/cloud-iot-core-overview/index.html
 
 #### Referencias
 
