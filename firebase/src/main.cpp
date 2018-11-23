@@ -18,7 +18,7 @@ DHT dht;
 #define WIFI_PASSWORD "PASS"
 
 #define LED 14
-#define LedPath "ledStatus"
+#define LEDPath "ledStatus"
 #define PublishPath "publishNewState"
 #define TemperaturePath "temperature"
 #define HumidityPath "humidity"
