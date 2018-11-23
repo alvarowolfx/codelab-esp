@@ -17,7 +17,7 @@ DHT dht;
 #define WIFI_SSID "SSID"
 #define WIFI_PASSWORD "PASS"
 
-#define LED 14
+#define LED D2
 #define LEDPath "ledStatus"
 #define PublishPath "publishNewState"
 #define TemperaturePath "temperature"
@@ -25,7 +25,7 @@ DHT dht;
 
 void setup()
 {
-    dht.setup(4); // data pin 2
+    dht.setup(D5); // data pin D5
    
 
     // Iniciar Monitor Serial

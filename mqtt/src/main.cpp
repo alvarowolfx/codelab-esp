@@ -18,6 +18,7 @@ DHT dht;
 #define humidity_topic "{seu_nome}/sensor/humidity"
 #define temperature_topic "{seu_nome}/sensor/temperature"
 #define led1_topic "{seu_nome}/led1"
+#define led1_pin D2
 #define luminosidade_topic "{seu_nome}/sensor/luminosidade"
 
 WiFiClient espClient;
@@ -38,19 +39,19 @@ void mqtt_callback(char* topic, byte* payload, unsigned int length) {
   if(String(topic) == led1_topic)
   {
     if(String(message) == "Liga")
-      digitalWrite(D5, HIGH);
+      digitalWrite(led1_pin, HIGH);
     else
-      digitalWrite(D5, LOW);
+      digitalWrite(led1_pin, LOW);
   }
 }
 
 void setup() {
   Serial.begin(115200);
-  dht.setup(4); // data pin D2
+  dht.setup(D5); // data pin D5  
   setup_wifi();
   client.setServer(mqtt_server, 1883);
   client.setCallback(mqtt_callback);
-  pinMode(D5, OUTPUT);
+  pinMode(led1_pin, OUTPUT);
 }
 
 void setup_wifi() {
