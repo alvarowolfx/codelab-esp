@@ -1,5 +1,6 @@
 # Codelab ESP8266
 
+* Exemplo HTTP Server
 * Exemplo MQTT
 * Exemplo Firebase
 
