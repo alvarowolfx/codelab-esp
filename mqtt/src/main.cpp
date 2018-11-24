@@ -7,19 +7,19 @@
 
 DHT dht;
 
-#define wifi_ssid "SSID"
-#define wifi_password "SSID"
+#define wifi_ssid "casa viebrantz"
+#define wifi_password "alvaro.felipe"
 
 #define mqtt_server "iot.eclipse.org"
 #define mqtt_user ""
 #define mqtt_password ""
 
-#define clientId "{seu_nome}"
-#define humidity_topic "{seu_nome}/sensor/humidity"
-#define temperature_topic "{seu_nome}/sensor/temperature"
-#define led1_topic "{seu_nome}/led1"
+#define clientId "alvaroviebrantz"
+#define humidity_topic "alvaroviebrantz/sensor/humidity"
+#define temperature_topic "alvaroviebrantz/sensor/temperature"
+#define led1_topic "alvaroviebrantz/led1"
 #define led1_pin D2
-#define luminosidade_topic "{seu_nome}/sensor/luminosidade"
+#define luminosidade_topic "alvaroviebrantz/sensor/luminosidade"
 
 WiFiClient espClient;
 PubSubClient client(espClient);
