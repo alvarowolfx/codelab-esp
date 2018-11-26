@@ -1,7 +1,3 @@
-#include <ESP8266WiFi.h>
-#include <PubSubClient.h>
-#include <WiFiClient.h>
-#include <String.h>
 #include "DHT.h"
 
 #define led1_pin D2

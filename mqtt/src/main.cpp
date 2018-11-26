@@ -7,24 +7,25 @@
 
 DHT dht;
 
-#define wifi_ssid "casa viebrantz"
-#define wifi_password "alvaro.felipe"
+#define wifi_ssid "ssid"
+#define wifi_password "pass"
 
 #define mqtt_server "iot.eclipse.org"
 #define mqtt_user ""
 #define mqtt_password ""
 
-#define clientId "alvaroviebrantz"
-#define humidity_topic "alvaroviebrantz/sensor/humidity"
-#define temperature_topic "alvaroviebrantz/sensor/temperature"
-#define led1_topic "alvaroviebrantz/led1"
+#define clientId "{seunome}"
+#define humidity_topic "{seunome}/sensor/humidity"
+#define temperature_topic "{seunome}/sensor/temperature"
+#define led1_topic "{seunome}/led1"
+#define led2_topic "{seunome}/led2"
 #define led1_pin D2
-#define luminosidade_topic "alvaroviebrantz/sensor/luminosidade"
+#define led2_pin D4
+#define luminosidade_topic "{seunome}/sensor/luminosidade"
 
 WiFiClient espClient;
 PubSubClient client(espClient);
 void setup_wifi();
-ESP8266WebServer server(80);
 
 
 void mqtt_callback(char* topic, byte* payload, unsigned int length) {
@@ -43,6 +44,14 @@ void mqtt_callback(char* topic, byte* payload, unsigned int length) {
     else
       digitalWrite(led1_pin, LOW);
   }
+
+  if(String(topic) == led2_topic)
+  {
+    if(String(message) == "Liga")
+      digitalWrite(led2_pin, HIGH);
+    else
+      digitalWrite(led2_pin, LOW);
+  }
 }
 
 void setup() {
@@ -52,6 +61,7 @@ void setup() {
   client.setServer(mqtt_server, 1883);
   client.setCallback(mqtt_callback);
   pinMode(led1_pin, OUTPUT);
+  pinMode(led2_pin, OUTPUT);
 }
 
 void setup_wifi() {
@@ -81,6 +91,7 @@ void reconnect() {
     if (client.connect(clientId)) {
       Serial.println("connected");
       client.subscribe(led1_topic);
+      client.subscribe(led2_topic);
     } else {
       Serial.print("failed, rc=");
       Serial.print(client.state());
